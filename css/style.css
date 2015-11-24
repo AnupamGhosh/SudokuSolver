@@ -1,0 +1,80 @@
+﻿
+input:invalid {
+    z-index: 4;
+    /*box-shadow: 1px 1px 3px red;*/
+}
+
+div > input[type="number"] {
+    width: 50px;
+    height: 50px;
+    font-size: 23px;
+    text-align: center;
+    -moz-appearance: textfield;
+    border: none;
+    float: left;
+    margin-right: 1px;
+    position: relative
+}
+
+.grid-mini {
+    float: left;
+    margin-right: 3px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    margin-left: 3px;
+}
+
+    .grid-mini:nth-child(2n+1) input[type="number"] {
+        background-color: #ffffcc;
+    }
+
+    .grid-mini:nth-child(2n) input[type="number"] {
+        background-color: #ffcccc;
+    }
+
+.grid-row {
+    margin-bottom: 1px;
+}
+
+    .grid-row:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+
+.game-container {
+    width: 477px;
+    background: rgba(241, 235, 235, 1);
+}
+
+.grid-container, .no-sln {
+    width: inherit;
+    height: 477px;
+}
+
+.grid-container {
+    background-color: lightblue;
+}
+
+.no-sln {
+    position: absolute;
+    font-size: 100px;
+    text-align: center;
+    background: #f2f2f2;
+    opacity: 0.5;
+}
+.back {
+    z-index: -1;
+}
+.front {
+    z-index: 4;
+}
+.game-container > button {
+    margin-top: 30px;
+    /*margin-left: 40px;*/
+    float: right;
+}
+
+#reset-btn {
+    margin-right: 40px;
+}

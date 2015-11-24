@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sudoku Solver</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link rel="shortcut icon" href="board.png">
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js"></script>
+    <!--<script src="js/SudokuSolver.js"></script>-->
+</head>
+<body>
+    <div class="container">
+        <h1>Sudoku Solver</h1>
+
+        <div class="game-container center-block">
+            <div class="no-sln back">
+                Sorry :( No Solution
+            </div>
+
+            <div class="grid-container">
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box00" />
+                        <input type="number" min="1" max="9" id="box01" />
+                        <input type="number" min="1" max="9" id="box02" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box10" />
+                        <input type="number" min="1" max="9" id="box11" />
+                        <input type="number" min="1" max="9" id="box12" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box20" />
+                        <input type="number" min="1" max="9" id="box21" />
+                        <input type="number" min="1" max="9" id="box22" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box03" />
+                        <input type="number" min="1" max="9" id="box04" />
+                        <input type="number" min="1" max="9" id="box05" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box13" />
+                        <input type="number" min="1" max="9" id="box14" />
+                        <input type="number" min="1" max="9" id="box15" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box23" />
+                        <input type="number" min="1" max="9" id="box24" />
+                        <input type="number" min="1" max="9" id="box25" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box06" />
+                        <input type="number" min="1" max="9" id="box07" />
+                        <input type="number" min="1" max="9" id="box08" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box16" />
+                        <input type="number" min="1" max="9" id="box17" />
+                        <input type="number" min="1" max="9" id="box18" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box26" />
+                        <input type="number" min="1" max="9" id="box27" />
+                        <input type="number" min="1" max="9" id="box28" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box30" />
+                        <input type="number" min="1" max="9" id="box31" />
+                        <input type="number" min="1" max="9" id="box32" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box40" />
+                        <input type="number" min="1" max="9" id="box41" />
+                        <input type="number" min="1" max="9" id="box42" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box50" />
+                        <input type="number" min="1" max="9" id="box51" />
+                        <input type="number" min="1" max="9" id="box52" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box33" />
+                        <input type="number" min="1" max="9" id="box34" />
+                        <input type="number" min="1" max="9" id="box35" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box43" />
+                        <input type="number" min="1" max="9" id="box44" />
+                        <input type="number" min="1" max="9" id="box45" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box53" />
+                        <input type="number" min="1" max="9" id="box54" />
+                        <input type="number" min="1" max="9" id="box55" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box36" />
+                        <input type="number" min="1" max="9" id="box37" />
+                        <input type="number" min="1" max="9" id="box38" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box46" />
+                        <input type="number" min="1" max="9" id="box47" />
+                        <input type="number" min="1" max="9" id="box48" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box56" />
+                        <input type="number" min="1" max="9" id="box57" />
+                        <input type="number" min="1" max="9" id="box58" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box60" />
+                        <input type="number" min="1" max="9" id="box61" />
+                        <input type="number" min="1" max="9" id="box62" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box70" />
+                        <input type="number" min="1" max="9" id="box71" />
+                        <input type="number" min="1" max="9" id="box72" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box80" />
+                        <input type="number" min="1" max="9" id="box81" />
+                        <input type="number" min="1" max="9" id="box82" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box63" />
+                        <input type="number" min="1" max="9" id="box64" />
+                        <input type="number" min="1" max="9" id="box65" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box73" />
+                        <input type="number" min="1" max="9" id="box74" />
+                        <input type="number" min="1" max="9" id="box75" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box83" />
+                        <input type="number" min="1" max="9" id="box84" />
+                        <input type="number" min="1" max="9" id="box85" />
+                    </div>
+                </div>
+                <div class="grid-mini">
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box66" />
+                        <input type="number" min="1" max="9" id="box67" />
+                        <input type="number" min="1" max="9" id="box68" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box76" />
+                        <input type="number" min="1" max="9" id="box77" />
+                        <input type="number" min="1" max="9" id="box78" />
+                    </div>
+                    <div class="grid-row">
+                        <input type="number" min="1" max="9" id="box86" />
+                        <input type="number" min="1" max="9" id="box87" />
+                        <input type="number" min="1" max="9" id="box88" />
+                    </div>
+                </div>
+
+            </div>
+
+            <button type="button" class="btn btn-default" id="solve-btn">Solve</button>
+            <button type="button" class="btn btn-default" id="reset-btn">Reset</button>
+        </div>
+    </div>
+
+</body>
+</html>
